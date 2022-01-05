@@ -1,0 +1,34 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wingstudioly.guard.dao.userInfoDao">
+    <!--改掉group_id-->
+    <resultMap id="userFace" type="com.wingstudioly.guard.bean.UserFaceInfo">
+        <id column="id" property="id" javaType="int"/>
+        <result column="group_id" property="groupId" javaType="java.lang.Integer"/>
+        <result column="face_id" property="faceId" javaType="String"/>
+        <result column="phone_number" property="phoneNumber" javaType="String"/>
+        <result column="create_time" property="createTime" javaType="java.util.Date"/>
+        <result column="face_feature" property="faceFeature"/>
+    </resultMap>
+
+    <resultMap id="userFace2" type="com.wingstudioly.guard.dto.FaceUserInfo">
+        <id column="id" property="id" javaType="int"/>
+        <result column="group_id" property="groupId" javaType="java.lang.Integer"/>
+        <result column="face_id" property="faceId" javaType="String"/>
+        <result column="phone_number" property="phoneNumber" javaType="String"/>
+        <result column="create_time" property="createTime" javaType="java.util.Date"/>
+        <result column="face_feature" property="faceFeature"/>
+    </resultMap>
+
+    <insert id="insertUserFaceInfo" parameterType="com.wingstudioly.guard.bean.UserFaceInfo" >
+        INSERT INTO user_face_info (face_id,name,face_feature) VALUES (#{faceId},#{name},#{faceFeature})
+    </insert>
+
+    <select id="getUserFaceInfo" resultMap="userFace2" resultType="com.wingstudioly.guard.dto.FaceUserInfo">
+        select face_id,name,face_feature from user_face_info
+    </select>
+    <delete id="deleteUserInfo" parameterType="java.lang.String">
+        delete from user_face_info where name = #{name}
+    </delete>
+</mapper>

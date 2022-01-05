@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wingstudioly.guard.dao.admin_DoorDao">
+    <select id="getMatchCount_Door" resultType="int">
+        select count(*) from admin_Door where Dname=#{Dname} and Dpassword=#{Dpassword}
+    </select>
+    <select id="getMatchCount_Door_RD" resultType="int">
+        select count(*) from admin_Door where Dname=#{Dname}
+    </select>
+    <insert id="registerAdmin_Door" parameterType="com.wingstudioly.guard.bean.Admin_Door">
+        insert into admin_Door values(null, #{Dname}, #{Dpassword}, #{DUID})
+    </insert>
+    <delete id="deleteAdmin_Door" >
+        delete from admin_Door where DUID=#{DUID}
+    </delete>
+    <select id="getAdmin_Door"  resultType="com.wingstudioly.guard.bean.Admin_Door">
+        select * from admin_Door where DUID = #{DUID}
+    </select>
+    <select id="getAllAdmin_Door" resultType="com.wingstudioly.guard.bean.Admin_Door">
+        select * from Admin_Door
+    </select>
+
+</mapper>

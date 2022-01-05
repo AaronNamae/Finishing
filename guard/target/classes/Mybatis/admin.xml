@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wingstudioly.guard.dao.adminDao">
+    <select id="getMatchCount" resultType="int">
+        select count(*) from admin where name=#{name} and password=#{password}
+    </select>
+    <select id="getMatchCount_R" resultType="int">
+        select count(*) from admin where name=#{name}
+    </select>
+    <insert id="registerAdmin" parameterType="com.wingstudioly.guard.bean.Admin">
+        insert into admin values(null, #{name}, #{password}, #{UID})
+    </insert>
+
+</mapper>

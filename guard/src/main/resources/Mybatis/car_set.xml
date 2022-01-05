@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wingstudioly.guard.dao.car_setDao">
+    <insert id="registerCar_set" parameterType="com.wingstudioly.guard.bean.Car_set">
+        insert into car_set values(#{car_id},#{tax_year},#{status},#{tax_date})
+    </insert>
+
+    <delete id="deleteCar_set" parameterType="java.lang.String">
+        delete from car_set where car_id=#{car_id}
+    </delete>
+
+    <select id="getCars_set" resultType="com.wingstudioly.guard.bean.Car_set">
+        select * from car_set where car_id is not null
+    </select>
+
+    <select id="getCar_set" resultType="com.wingstudioly.guard.bean.Car_set" parameterType="java.lang.String">
+        select * from car_set where car_id=#{car_id}
+    </select>
+    <update id="updateCar_set">
+        update car_set set car_id=#{now} where car_id =#{old}
+    </update>
+
+    <update id="editCar_set" >
+        update car_set set tax_year=#{tax_year}
+        where car_id = #{car_id}
+    </update>
+
+</mapper>

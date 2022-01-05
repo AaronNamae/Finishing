@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wingstudioly.guard.dao.courtDao">
+    <update id="incrementIn">
+        update court set inC = inC+1
+    </update>
+    <update id="incrementOut">
+        update court set outC = outC+1
+    </update>
+    <update id="incrementAll">
+        update court set allC = allC+1
+    </update>
+    <update id="incrementAllOut">
+        update court set allC = allC-1
+    </update>
+    <update id="incrementGdIn">
+        update court set gdIn = gdIn+1
+    </update>
+    <update id="incrementGdOut">
+        update court set gdOut = gdOut+1
+    </update>
+    <update id="updateCourt" parameterType="Date">
+        update court set inC = inC-outC, outC = 0 ,last_date=#{date} ,GdIn = GdIn-GdOut, GdOut = 0 where court_id = 1
+    </update>
+    <select id="getCourt" resultType="com.wingstudioly.guard.bean.Court">
+        select * from court where court_id =1
+    </select>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wingstudioly.guard.dao.carDao">
+    <delete id="deleteCar" parameterType="java.lang.String">
+        delete from car where car_id=#{car_id}
+    </delete>
+    <insert id="registerCar" parameterType="com.wingstudioly.guard.bean.Car">
+        insert into car values(#{car_id},#{in_time},#{out_time},#{status})
+    </insert>
+    <select id="getAllCars" resultType="com.wingstudioly.guard.bean.Car">
+        select * from car where in_time is not null
+    </select>
+    <select id="getTmpCars" resultType="com.wingstudioly.guard.bean.Car">
+        select * from car where status = 0
+    </select>
+    <select id="getCar" resultType="com.wingstudioly.guard.bean.Car" parameterType="java.lang.String">
+        select * from car where car_id=#{car_id}
+    </select>
+    <update id="updateCar">
+        update car set car_id=#{now} where car_id =#{old}
+    </update>
+    <update id="updateInCar">
+        update car set in_time = NOW(), out_time = null where car_id = #{car_id}
+    </update>
+    <update id="updateOutCar">
+        update car set out_time = NOW() where car_id = #{car_id}
+    </update>
+</mapper>

@@ -1,0 +1,50 @@
+GET http://identity_car.html
+
+###
+
+GET http://identity_car_Door.html
+
+###
+
+GET http://localhost:8080/api/test
+
+<> 2021-05-07T013203.500.html
+
+###
+
+GET http://localhost:8080/api/test
+
+<> 2021-05-07T013036.500.html
+
+###
+
+GET http://localhost:8080/login.html
+
+<> 2021-05-05T101930.404.json
+
+###
+
+POST http://localhost:8080/api/loginCheck
+
+<> 2021-05-05T093214.200.json
+
+###
+
+GET http://localhost:8080/login.html
+
+<> 2021-05-05T093143.404.json
+
+###
+
+GET http://localhost:8080/check.html
+
+<> 2021-05-05T093135.200.txt
+
+###
+
+GET http://localhost:8080/login.html
+
+<> 2021-05-05T093124.404.json
+
+###
+
